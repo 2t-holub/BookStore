@@ -1,0 +1,4 @@
+MainTest.class
+services\PurchaseServiceTest.class
+services\CustomerServiceTest.class
+services\BookServiceTest.class
