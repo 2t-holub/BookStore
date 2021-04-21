@@ -35,10 +35,6 @@ public class Customer {
         return customerId;
     }
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
-
     public String getCustomerName() {
         return customerName;
     }
@@ -53,14 +49,6 @@ public class Customer {
 
     public void setCustomerSurname(String customerSurname) {
         this.customerSurname = customerSurname;
-    }
-
-    public Date getCustomerRegisterDate() {
-        return customerRegisterDate;
-    }
-
-    public void setCustomerRegisterDate(Date customerRegisterDate) {
-        this.customerRegisterDate = customerRegisterDate;
     }
 
     @Override

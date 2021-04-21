@@ -54,20 +54,8 @@ public class Purchase {
         this.book = book;
     }
 
-    public Date getPurchaseDatetime() {
-        return purchaseDatetime;
-    }
-
-    public void setPurchaseDatetime(Date purchaseDatetime) {
-        this.purchaseDatetime = purchaseDatetime;
-    }
-
     public Long getPurchaseId() {
         return purchaseId;
-    }
-
-    public void setPurchaseId(Long purchaseId) {
-        this.purchaseId = purchaseId;
     }
 
     @Override

@@ -37,24 +37,12 @@ public class Book {     //POJO
         return bookId;
     }
 
-    public void setBookId(Long bookId) {
-        this.bookId = bookId;
-    }
-
     public String getBookName() {
         return bookName;
     }
 
     public void setBookName(String bookName) {
         this.bookName = bookName;
-    }
-
-    public int getPageNumber() {
-        return pageNumber;
-    }
-
-    public void setPageNumber(int pageNumber) {
-        this.pageNumber = pageNumber;
     }
 
     public String getBookAuthor() {
