@@ -66,7 +66,7 @@ class PurchaseServiceTest {
     @Test
     void findPurchase() {
         Purchase expectedPurchase = purchases.get(0);
-        Purchase actualPurchase = purchaseService.findPurchase(expectedPurchase.getPurchase_id());
+        Purchase actualPurchase = purchaseService.findPurchase(expectedPurchase.getPurchaseId());
         assertEquals(expectedPurchase, actualPurchase);
     }
 
@@ -75,7 +75,7 @@ class PurchaseServiceTest {
         try {
             Purchase expectedPurchase = new Purchase(customers.get(0), books.get(0), simpleDateTimeFormat.parse("2021-04-06 11:55:41"));
             purchaseService.savePurchase(expectedPurchase);
-            Purchase actualPurchase = purchaseService.findPurchase(expectedPurchase.getPurchase_id());
+            Purchase actualPurchase = purchaseService.findPurchase(expectedPurchase.getPurchaseId());
             assertEquals(expectedPurchase, actualPurchase);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -86,7 +86,7 @@ class PurchaseServiceTest {
     void deletePurchase() {
         Purchase purchase = purchases.get(0);
         purchaseService.deletePurchase(purchase);
-        Purchase nonExistentPurchase = purchaseService.findPurchase(purchase.getPurchase_id());
+        Purchase nonExistentPurchase = purchaseService.findPurchase(purchase.getPurchaseId());
         assertNull(nonExistentPurchase);
     }
 
@@ -96,7 +96,7 @@ class PurchaseServiceTest {
         expectedPurchase.setBook(books.get(0));
         expectedPurchase.setCustomer(customers.get(0));
         purchaseService.updatePurchase(expectedPurchase);
-        Purchase actualPurchase = purchaseService.findPurchase(expectedPurchase.getPurchase_id());
+        Purchase actualPurchase = purchaseService.findPurchase(expectedPurchase.getPurchaseId());
         assertEquals(expectedPurchase, actualPurchase);
     }
 
@@ -110,7 +110,7 @@ class PurchaseServiceTest {
     void findAllPurchasesByCustomer() {
         List<Purchase> expectedPurchases = purchases
                 .stream()
-                .filter(purchase -> purchase.getCustomer().getCustomer_id() == customers.get(1).getCustomer_id())
+                .filter(purchase -> purchase.getCustomer().getCustomerId() == customers.get(1).getCustomerId())
                 .collect(Collectors.toList());
         List<Purchase> actualPurchases = purchaseService.findAllPurchasesByCustomer(customers.get(1));
     }

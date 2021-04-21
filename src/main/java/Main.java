@@ -26,11 +26,6 @@ public class Main {
     private static PurchaseService purchaseService = new PurchaseService();
 
     public static void main(String[] args) {
-
-        //bookCrudTest();
-        //customerCrudTest();
-        //purchaseCrudTest();
-
         try {
             Customer customer = meetCustomer();
             Book book = offerBooks();
@@ -52,7 +47,7 @@ public class Main {
             customer = registerNewCustomer();
             System.out.println("write register function here");
         }
-        System.out.println("Hello, " + customer.getCustomer_name());
+        System.out.println("Hello, " + customer.getCustomerName());
         return customer;
     }
 
@@ -106,13 +101,13 @@ public class Main {
         //I imagine that there is a payment here. Function will return false, if some problem arise.
         Purchase purchase = new Purchase(customer, book, new Date());
         purchaseService.savePurchase(purchase);
-        System.out.println("Thanks for your purchase! \"" + book.getBook_name() + "\" (" + book.getBook_author() + ") is yours.");
+        System.out.println("Thanks for your purchase! \"" + book.getBookName() + "\" (" + book.getBookAuthor() + ") is yours.");
         return true;
     }
 
     public static void showFullCustomerInformation(Customer customer) {
         List<Purchase> purchasesOfCustomer = purchaseService.findAllPurchasesByCustomer(customer);
-        System.out.println("\nYour purchases, " + customer.getCustomer_name() + " " + customer.getCustomer_surname() + ": ");
+        System.out.println("\nYour purchases, " + customer.getCustomerName() + " " + customer.getCustomerSurname() + ": ");
         purchasesOfCustomer.stream().forEach(purchase -> System.out.println(purchase.getStrBookInfo()));
     }
 }

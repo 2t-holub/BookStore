@@ -56,7 +56,7 @@ public class PurchaseDaoImpl implements PurchaseDao{
     @Override
     public List<Purchase> findAllByCustomer(Customer customer) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        List<Purchase> purchases = session.createQuery("From Purchase Where customer_id = " + customer.getCustomer_id()).list();
+        List<Purchase> purchases = session.createQuery("From Purchase Where customer = " + customer.getCustomerId()).list();
         session.close();
         return purchases;
     }

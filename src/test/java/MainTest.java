@@ -70,7 +70,7 @@ class MainTest {
     @Test
     void meetCustomer() throws IOException {
         InputStream sysInBackup = System.in; // backup System.in to restore it later
-        ByteArrayInputStream in = new ByteArrayInputStream(String.valueOf(customers.get(1).getCustomer_id()).getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream(String.valueOf(customers.get(1).getCustomerId()).getBytes());
         System.setIn(in);
         Customer actualCustomer =  Main.meetCustomer();
         Customer expectedCustomer = customers.get(1);
@@ -84,8 +84,8 @@ class MainTest {
         ByteArrayInputStream in = new ByteArrayInputStream("Name Surname".getBytes());
         System.setIn(in);
         Customer actualCustomer =  Main.registerNewCustomer();
-        assertEquals("Name", actualCustomer.getCustomer_name());
-        assertEquals("Surname", actualCustomer.getCustomer_surname());
+        assertEquals("Name", actualCustomer.getCustomerName());
+        assertEquals("Surname", actualCustomer.getCustomerSurname());
         assertTrue(!customers.contains(actualCustomer));
         System.setIn(sysInBackup);
     }
@@ -93,7 +93,7 @@ class MainTest {
     @Test
     void offerBooks() throws IOException {
         InputStream sysInBackup = System.in; // backup System.in to restore it later
-        ByteArrayInputStream in = new ByteArrayInputStream(String.valueOf(books.get(0).getBook_id()).getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream(String.valueOf(books.get(0).getBookId()).getBytes());
         System.setIn(in);
         Book actualBook =  Main.offerBooks();
         Book expectedBook = books.get(0);

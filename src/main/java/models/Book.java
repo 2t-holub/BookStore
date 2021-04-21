@@ -8,69 +8,78 @@ public class Book {     //POJO
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long book_id;
-    private String book_name;
-    private int page_number;
-    private String book_author;
-    private double book_price;
+    @Column(name = "book_id")
+    private Long bookId;
+
+    @Column(name = "book_name")
+    private String bookName;
+
+    @Column(name = "page_number")
+    private int pageNumber;
+
+    @Column(name = "book_author")
+    private String bookAuthor;
+
+    @Column(name = "book_price")
+    private double bookPrice;
 
     public Book() {
     }
 
-    public Book(String book_name, int page_number, String book_author, double book_price) {
-        this.book_name = book_name;
-        this.page_number = page_number;
-        this.book_author = book_author;
-        this.book_price = book_price;
+    public Book(String bookName, int pageNumber, String bookAuthor, double bookPrice) {
+        this.bookName = bookName;
+        this.pageNumber = pageNumber;
+        this.bookAuthor = bookAuthor;
+        this.bookPrice = bookPrice;
     }
 
-    public long getBook_id() {
-        return book_id;
+    public Long getBookId() {
+        return bookId;
     }
 
-    public void setBook_id(long book_id) {
-        this.book_id = book_id;
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
     }
 
-    public String getBook_name() {
-        return book_name;
+    public String getBookName() {
+        return bookName;
     }
 
-    public void setBook_name(String book_name) {
-        this.book_name = book_name;
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
     }
 
-    public int getPage_number() {
-        return page_number;
+    public int getPageNumber() {
+        return pageNumber;
     }
 
-    public void setPage_number(int page_number) {
-        this.page_number = page_number;
+    public void setPageNumber(int pageNumber) {
+        this.pageNumber = pageNumber;
     }
 
-    public String getBook_author() {
-        return book_author;
+    public String getBookAuthor() {
+        return bookAuthor;
     }
 
-    public void setBook_author(String book_author) {
-        this.book_author = book_author;
+    public void setBookAuthor(String bookAuthor) {
+        this.bookAuthor = bookAuthor;
     }
 
-    public double getBook_price() {
-        return book_price;
+    public double getBookPrice() {
+        return bookPrice;
     }
 
-    public void setBook_price(double book_price) {
-        this.book_price = book_price;
+    public void setBookPrice(double bookPrice) {
+        this.bookPrice = bookPrice;
     }
 
     @Override
     public String toString() {
-        return book_id + ". \""
-                + book_name + "\" ("
-                + book_author + ") "
-                + page_number + " pages - "
-                + book_price + "₴";
+        return bookId + ". \""
+                + bookName + "\" ("
+                + bookAuthor + ") "
+                + pageNumber + " pages - "
+                + bookPrice + "₴";
     }
 
     @Override
@@ -84,24 +93,24 @@ public class Book {     //POJO
         }
 
         final Book other = (Book) obj;
-        if ((this.book_name == null) ? (other.book_name != null) : !this.book_name.equals(other.book_name)) {
+        if ((this.bookName == null) ? (other.bookName != null) : !this.bookName.equals(other.bookName)) {
             return false;
         }
 
-        if ((this.book_author == null) ? (other.book_author != null) : !this.book_author.equals(other.book_author)) {
+        if ((this.bookAuthor == null) ? (other.bookAuthor != null) : !this.bookAuthor.equals(other.bookAuthor)) {
             return false;
         }
 
-        if ((this.book_id == null) ? (other.book_id != null) : !this.book_id.equals(other.book_id)) {
+        if ((this.bookId == null) ? (other.bookId != null) : !this.bookId.equals(other.bookId)) {
             return false;
         }
 
-        if (this.page_number != other.page_number) {
+        if (this.pageNumber != other.pageNumber) {
             return false;
         }
 
 
-        if ((int)((this.book_price+0.005)*100) != (int)((other.book_price+0.005)*100)) {
+        if ((int)((this.bookPrice+0.005)*100) != (int)((other.bookPrice+0.005)*100)) {
             return false;
         }
 
@@ -111,11 +120,11 @@ public class Book {     //POJO
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 53 * hash + (this.book_name != null ? this.book_name.hashCode() : 0);
-        hash = 53 * hash + (this.book_author != null ? this.book_author.hashCode() : 0);
-        hash = 53 * hash + (this.book_id != null ? this.book_id.hashCode() : 0);
-        hash = 53 * hash + this.page_number;
-        hash = 53 * hash + (int)(this.book_price+0.5);
+        hash = 53 * hash + (this.bookName != null ? this.bookName.hashCode() : 0);
+        hash = 53 * hash + (this.bookAuthor != null ? this.bookAuthor.hashCode() : 0);
+        hash = 53 * hash + (this.bookId != null ? this.bookId.hashCode() : 0);
+        hash = 53 * hash + this.pageNumber;
+        hash = 53 * hash + (int)(this.bookPrice+0.5);
         return hash;
     }
 }

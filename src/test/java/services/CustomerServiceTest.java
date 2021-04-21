@@ -34,7 +34,7 @@ class CustomerServiceTest {
     @Test
     void findCustomer() {
         Customer expectedCustomer = customers.get(0);
-        Customer actualCustomer = customerService.findCustomer(expectedCustomer.getCustomer_id());
+        Customer actualCustomer = customerService.findCustomer(expectedCustomer.getCustomerId());
         assertEquals(expectedCustomer, actualCustomer);
     }
 
@@ -43,7 +43,7 @@ class CustomerServiceTest {
         try {
             Customer expectedCustomer = new Customer("Lukas", "Johnson", new SimpleDateFormat("yyyy-MM-dd").parse("2021-02-09"));
             customerService.saveCustomer(expectedCustomer);
-            Customer actualCustomer = customerService.findCustomer(expectedCustomer.getCustomer_id());
+            Customer actualCustomer = customerService.findCustomer(expectedCustomer.getCustomerId());
             assertEquals(expectedCustomer, actualCustomer);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -54,17 +54,17 @@ class CustomerServiceTest {
     void deleteCustomer() {
         Customer customer = customers.get(0);
         customerService.deleteCustomer(customer);
-        Customer nonExistentCustomer = customerService.findCustomer(customer.getCustomer_id());
+        Customer nonExistentCustomer = customerService.findCustomer(customer.getCustomerId());
         assertNull(nonExistentCustomer);
     }
 
     @Test
     void updateCustomer() {
         Customer expectedCustomer = customers.get(0);
-        expectedCustomer.setCustomer_name("Oleg");
-        expectedCustomer.setCustomer_surname("Teslenko");
+        expectedCustomer.setCustomerName("Oleg");
+        expectedCustomer.setCustomerSurname("Teslenko");
         customerService.updateCustomer(expectedCustomer);
-        Customer actualCustomer = customerService.findCustomer(expectedCustomer.getCustomer_id());
+        Customer actualCustomer = customerService.findCustomer(expectedCustomer.getCustomerId());
         assertEquals(expectedCustomer, actualCustomer);
     }
 

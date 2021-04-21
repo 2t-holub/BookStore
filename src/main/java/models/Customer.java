@@ -9,60 +9,67 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long customer_id;
-    private String customer_name;
-    private String customer_surname;
+    @Column(name = "customer_id")
+    private Long customerId;
+
+    @Column(name = "customer_name")
+    private String customerName;
+
+    @Column(name = "customer_surname")
+    private String customerSurname;
+
     @Temporal(TemporalType.TIMESTAMP)
-    private Date customer_register_date;
+    @Column(name = "customer_register_date")
+    private Date customerRegisterDate;
 
     public Customer() {
     }
 
-    public Customer(String customer_name, String customer_surname, Date customer_register_date) {
-        this.customer_name = customer_name;
-        this.customer_surname = customer_surname;
-        this.customer_register_date = customer_register_date;
+    public Customer(String customerName, String customerSurname, Date customerRegisterDate) {
+        this.customerName = customerName;
+        this.customerSurname = customerSurname;
+        this.customerRegisterDate = customerRegisterDate;
     }
 
-    public long getCustomer_id() {
-        return customer_id;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer_id(long customer_id) {
-        this.customer_id = customer_id;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
-    public String getCustomer_name() {
-        return customer_name;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setCustomer_name(String customer_name) {
-        this.customer_name = customer_name;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
-    public String getCustomer_surname() {
-        return customer_surname;
+    public String getCustomerSurname() {
+        return customerSurname;
     }
 
-    public void setCustomer_surname(String customer_surname) {
-        this.customer_surname = customer_surname;
+    public void setCustomerSurname(String customerSurname) {
+        this.customerSurname = customerSurname;
     }
 
-    public Date getCustomer_register_date() {
-        return customer_register_date;
+    public Date getCustomerRegisterDate() {
+        return customerRegisterDate;
     }
 
-    public void setCustomer_register_date(Date customer_register_date) {
-        this.customer_register_date = customer_register_date;
+    public void setCustomerRegisterDate(Date customerRegisterDate) {
+        this.customerRegisterDate = customerRegisterDate;
     }
 
     @Override
     public String toString() {
         return "Customer{" +
-                "customer_id=" + customer_id +
-                ", customer_name='" + customer_name + '\'' +
-                ", customer_surname='" + customer_surname + '\'' +
-                ", customer_register_date=" + customer_register_date +
+                "customerId=" + customerId +
+                ", customerName='" + customerName + '\'' +
+                ", customerSurname='" + customerSurname + '\'' +
+                ", customerRegisterDate=" + customerRegisterDate +
                 '}';
     }
 
@@ -77,16 +84,16 @@ public class Customer {
         }
 
         final Customer other = (Customer) obj;
-        if ((this.customer_name == null) ? (other.customer_name != null) : !this.customer_name.equals(other.customer_name)) {
+        if ((this.customerName == null) ? (other.customerName != null) : !this.customerName.equals(other.customerName)) {
             return false;
         }
 
-        if ((this.customer_surname == null) ? (other.customer_surname != null) : !this.customer_surname.equals(other.customer_surname)) {
+        if ((this.customerSurname == null) ? (other.customerSurname != null) : !this.customerSurname.equals(other.customerSurname)) {
             return false;
         }
 
-        if ((this.customer_register_date == null) ? (other.customer_register_date != null) : this.customer_register_date.getTime()!=other.customer_register_date.getTime()) {
-            System.out.println(this.customer_register_date.getTime()+" _ "+other.customer_register_date.getTime());
+        if ((this.customerRegisterDate == null) ? (other.customerRegisterDate != null) : this.customerRegisterDate.getTime()!=other.customerRegisterDate.getTime()) {
+            System.out.println(this.customerRegisterDate.getTime()+" _ "+other.customerRegisterDate.getTime());
             return false;
         }
 
@@ -96,10 +103,10 @@ public class Customer {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 53 * hash + (this.customer_name != null ? this.customer_name.hashCode() : 0);
-        hash = 53 * hash + (this.customer_surname != null ? this.customer_surname.hashCode() : 0);
-        hash = 53 * hash + (this.customer_register_date != null ? this.customer_register_date.hashCode() : 0);
-        hash = 53 * hash + (this.customer_id != null ? this.customer_id.hashCode() : 0);
+        hash = 53 * hash + (this.customerName != null ? this.customerName.hashCode() : 0);
+        hash = 53 * hash + (this.customerSurname != null ? this.customerSurname.hashCode() : 0);
+        hash = 53 * hash + (this.customerRegisterDate != null ? this.customerRegisterDate.hashCode() : 0);
+        hash = 53 * hash + (this.customerId != null ? this.customerId.hashCode() : 0);
         return hash;
     }
 }

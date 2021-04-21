@@ -33,7 +33,7 @@ class BookServiceTest {
     @Test
     void findBook() {
         Book expectedBook = books.get(0);
-        Book actualBook = bookService.findBook(expectedBook.getBook_id());
+        Book actualBook = bookService.findBook(expectedBook.getBookId());
         assertEquals(expectedBook, actualBook);
     }
 
@@ -41,7 +41,7 @@ class BookServiceTest {
     void saveBook() {
         Book expectedBook = new Book("DNK2", 194, "Karpa", 121.98);
         bookService.saveBook(expectedBook);
-        Book actualBook = bookService.findBook(expectedBook.getBook_id());
+        Book actualBook = bookService.findBook(expectedBook.getBookId());
         assertEquals(expectedBook, actualBook);
     }
 
@@ -49,17 +49,17 @@ class BookServiceTest {
     void deleteBook() {
         Book book = books.get(0);
         bookService.deleteBook(book);
-        Book nonExistentBook = bookService.findBook(book.getBook_id());
+        Book nonExistentBook = bookService.findBook(book.getBookId());
         assertNull(nonExistentBook);
     }
 
     @Test
     void updateBook() {
         Book expectedBook = books.get(0);
-        expectedBook.setBook_name("DNK (part1)");
-        expectedBook.setBook_price(150.99);
+        expectedBook.setBookName("DNK (part1)");
+        expectedBook.setBookPrice(150.99);
         bookService.updateBook(expectedBook);
-        Book actualBook = bookService.findBook(expectedBook.getBook_id());
+        Book actualBook = bookService.findBook(expectedBook.getBookId());
         assertEquals(expectedBook, actualBook);
     }
 
